@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    include: datasource
+  application:
+    name: low-key-students
+  datasource:
+    url: jdbc:postgresql://localhost:8080/postgres
+    username: admin
+    password: limon1441
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
