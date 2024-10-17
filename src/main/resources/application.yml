@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    include: datasource
+  application:
+    name: low-key-students
+  datasource:
+    url: jdbc:postgresql://localhost:8080/postgres
+    username: admin
+    password: limon1441
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
