@@ -4,8 +4,8 @@ spring:
   application:
     name: low-key-students
   datasource:
-    url: jdbc:postgresql://localhost:8080/postgres
-    username: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
     password: limon1441
     driver-class-name: org.postgresql.Driver
   jpa:

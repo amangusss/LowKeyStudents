@@ -25,7 +25,7 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     String email;
 
-    String typeOfUser;
+    boolean isStudent;
 
     @OneToMany(fetch = FetchType.LAZY)
     @Builder.Default

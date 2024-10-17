@@ -1,5 +1,6 @@
 package alatoo.edu.kg.lowkeystudents_api.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -17,11 +18,14 @@ public class PostEntity {
     @Column(unique = true, nullable = false)
     String title;
 
+    @Column(unique = true, nullable = false)
     String description;
 
     String author;
 
+    @JsonProperty("created_at")
     Instant createdAt = Instant.now();
 
+    @JsonProperty("updated_at")
     Instant updatedAt = Instant.now();
 }
