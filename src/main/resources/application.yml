@@ -7,6 +7,8 @@ spring:
     url: jdbc:postgresql://localhost:8080/postgres
     username: admin
     password: limon1441
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
