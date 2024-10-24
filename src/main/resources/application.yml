@@ -4,11 +4,12 @@ spring:
   application:
     name: low-key-students
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/LowKeyStudents
     username: postgres
     password: limon1441
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
