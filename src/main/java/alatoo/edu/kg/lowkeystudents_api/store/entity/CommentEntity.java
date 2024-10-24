@@ -7,27 +7,21 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "posts")
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PostEntity {
+@Table(name = "comments")
+public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
     @Column(nullable = false)
-    String title;
-
-    @Column(nullable = false)
-    String description;
+    String content;
 
     @JsonProperty("created_at")
     @Column(updatable = false)
@@ -37,10 +31,12 @@ public class PostEntity {
     @Column
     Instant updatedAt = Instant.now();
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<CommentEntity> comments = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    BaseUserEntity author;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
-    BaseUserEntity author;
+    @JoinColumn(name = "post_id")
+    PostEntity post;
 }
+
