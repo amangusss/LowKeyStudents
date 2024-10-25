@@ -1,27 +1,23 @@
 package alatoo.edu.kg.lowkeystudents_api.api.payload;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
-
+import java.util.List;
 import java.time.Instant;
 
-public record UserDto(
+public record StudentDto(
         @NotNull
         Long id,
         @NotNull
         String username,
         @NotNull
         String email,
+        @NotNull
+        String phoneNumber,
 
         @NotNull
-        String content,
-        @NotNull
-        String role,
-        @NotNull
-        @JsonProperty("created_at")
-        Instant createdAt,
-        @NotNull
-        @JsonProperty("updated_at")
-        Instant updatedAt
+        List<PostDto> posts,
+        List<CommentDto> comments
+
+
 ) {
 }
