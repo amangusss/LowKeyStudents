@@ -4,15 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.Instant;
-import java.util.List;
 
-public record PostDto(
+public record CommentDto(
         @NotNull
         Long id,
         @NotNull
-        String title,
-        @NotNull
-        String description,
+        String content,
         @NotNull
         String author,
         @NotNull
@@ -20,8 +17,6 @@ public record PostDto(
         Instant createdAt,
         @NotNull
         @JsonProperty("updated_at")
-        Instant updatedAt,
-
-        List<CommentDto> comments
+        Instant updatedAt
 ) {
 }
