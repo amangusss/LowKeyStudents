@@ -14,21 +14,21 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "comments")
+@Table(name = "COMMENTS")
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
-    @Column(nullable = false)
+    @Column(name = "CONTENT", nullable = false)
     String content;
 
     @JsonProperty("created_at")
-    @Column(updatable = false)
+    @Column(name = "CREATED_AT", updatable = false)
     Instant createdAt = Instant.now();
 
     @JsonProperty("updated_at")
-    @Column
+    @Column(name = "UPDATED_AT")
     Instant updatedAt = Instant.now();
 
     @ManyToOne

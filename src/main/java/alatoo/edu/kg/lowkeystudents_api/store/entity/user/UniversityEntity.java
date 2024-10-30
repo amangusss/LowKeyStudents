@@ -17,13 +17,13 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "universities")
 public class UniversityEntity extends BaseUserEntity{
-    @Column(nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "address", nullable = false, unique = true)
     String address;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "description", nullable = false, unique = true)
     String description;
 
     @OneToMany(mappedBy = "author")
