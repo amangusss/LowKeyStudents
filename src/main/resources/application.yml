@@ -4,9 +4,9 @@ spring:
   application:
     name: low-key-students
   datasource:
-    url: jdbc:postgresql://localhost:5432/LowKeyStudents
-    username: postgres
-    password: limon1441
+    URL: jdbc:postgresql://212.132.97.24:5432/cazamat
+    username: cazamat
+    password: qfP94j9woo8dISPS
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
