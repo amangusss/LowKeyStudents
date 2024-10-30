@@ -12,14 +12,14 @@ public record UniversityDto(
         @NotNull
         String description,
         @NotNull
-        String adress,
+        String address,
         @NotNull
         String email,
         @NotNull
         String phoneNumber,
+
         @NotNull
         List<CommentDto> comments,
         List<PostDto> posts
-
 ) {
 }
