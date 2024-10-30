@@ -16,10 +16,10 @@ import java.util.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "students")
 public class StudentEntity extends BaseUserEntity{
-    @Column(unique = true, nullable = false)
+    @Column(name = "username", unique = true, nullable = false)
     String username;
 
-    @OneToMany(mappedBy = "author" ,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     List<PostEntity> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package alatoo.edu.kg.lowkeystudents_api.store.entity.user;
 
+import alatoo.edu.kg.lowkeystudents_api.api.enums.Roles;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -16,9 +17,12 @@ public abstract class BaseUserEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     String email;
 
-    @Column(unique = true)
+    @Column(name = "phone_number", unique = true)
     String phoneNumber;
+
+    @Column(name = "role", nullable = false)
+    Roles role;
 }

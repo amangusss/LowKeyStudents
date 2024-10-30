@@ -23,18 +23,18 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
-    @Column(nullable = false)
+    @Column(name = "title", nullable = false)
     String title;
 
-    @Column(nullable = false)
+    @Column(name = "description", nullable = false)
     String description;
 
     @JsonProperty("created_at")
-    @Column(updatable = false)
+    @Column(name = "created_at", updatable = false)
     Instant createdAt = Instant.now();
 
     @JsonProperty("updated_at")
-    @Column
+    @Column(name = "updated_at")
     Instant updatedAt = Instant.now();
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
