@@ -13,8 +13,11 @@ target/
 .springBeans
 .sts4-cache
 
+### Maven ###
+/target/
+
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -31,6 +34,16 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### OS-specific ###
+.DS_Store
+Thumbs.db
 
 ### Other files ###
 Project Requirements.txt
