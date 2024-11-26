@@ -34,3 +34,4 @@ build/
 
 ### Other files ###
 Project Requirements.txt
+src/main/resources/application-secret.yml
