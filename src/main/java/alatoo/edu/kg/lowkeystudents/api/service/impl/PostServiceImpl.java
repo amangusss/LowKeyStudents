@@ -9,7 +9,6 @@ import alatoo.edu.kg.lowkeystudents.store.entity.PostEntity;
 import alatoo.edu.kg.lowkeystudents.store.entity.UserEntity;
 import alatoo.edu.kg.lowkeystudents.store.repository.PostRepository;
 
-import alatoo.edu.kg.lowkeystudents.store.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
@@ -25,7 +24,6 @@ import java.util.stream.Collectors;
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
     private final PostMapper postMapper;
 
     @Override

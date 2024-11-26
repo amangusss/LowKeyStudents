@@ -10,7 +10,7 @@ import alatoo.edu.kg.lowkeystudents.store.entity.PostEntity;
 import alatoo.edu.kg.lowkeystudents.store.entity.UserEntity;
 import alatoo.edu.kg.lowkeystudents.store.repository.CommentRepository;
 import alatoo.edu.kg.lowkeystudents.store.repository.PostRepository;
-import alatoo.edu.kg.lowkeystudents.store.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,7 +25,6 @@ public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
     private final CommentMapper commentMapper;
 
     @Override
