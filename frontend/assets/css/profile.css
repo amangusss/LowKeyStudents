@@ -1,43 +1,114 @@
 /* profile.css */
 
-#profile {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #bdc3c7;
-    border-radius: 8px;
-    margin-bottom: 40px;
-  }
-  
-  #profile h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .profile-info p {
-    font-size: 1em;
-    color: #34495e;
-    margin-bottom: 10px;
-  }
-  
-  .profile-info strong {
-    color: #2c3e50;
-  }
-  
-  #user-posts, #user-comments {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .comment-list {
-    border-left: 3px solid #bdc3c7;
-    padding-left: 20px;
-  }
-  
-  .comment-list p {
-    margin: 0;
-    font-size: 0.95em;
-    color: #2c3e50;
-  }
-  
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Уведомления */
+.notification {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.notification.error {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.notification.success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* Заголовки */
+h1, h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #34495e;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #2980b9;
+}
+
+/* Информация о профиле */
+#profile-info {
+  margin-bottom: 30px;
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #bdc3c7;
+}
+
+#profile-info p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+#profile-info strong {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Посты пользователя */
+#user-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Оформление отдельного поста */
+.post {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post h3 {
+  margin-top: 0;
+  color: #2980b9;
+}
+
+.post p {
+  margin: 10px 0 0;
+  font-size: 1em;
+  color: #34495e;
+}
+
+/* Кнопки */
+button, .button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+}

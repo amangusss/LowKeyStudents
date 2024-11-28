@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: application-secret.yml
+  profiles:
+    include: datasource
+  application:
+    name: low-key-students
+  datasource:
+    URL: jdbc:postgresql://212.132.97.24:5432/cazamat
+    username: cazamat
+    password: qfP94j9woo8dISPS
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+server:
+  port: 8081

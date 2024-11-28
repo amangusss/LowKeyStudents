@@ -1,22 +1,21 @@
-// assets/js/profile.js
-
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('profile-username')) {
     loadProfile();
     loadUserPosts();
-    // Удаляем загрузку комментариев
-    // loadUserComments();
   }
 });
 
+// Получение параметра userId из URL
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
+// Загрузка профиля пользователя
 async function loadProfile() {
   const userId = getQueryParam('userId');
   if (!userId) {
+    console.error('userId отсутствует в URL');
     showNotification('Пользователь не указан.', 'error');
     return;
   }
@@ -27,16 +26,20 @@ async function loadProfile() {
         'Authorization': `Bearer ${authToken}`,
       },
     });
+
     if (!response.ok) throw new Error('Ошибка при получении профиля');
+
     const user = await response.json();
+
+    // Заполнение информации профиля
     document.getElementById('profile-username').textContent = user.username;
-    // Не отображаем email и phoneNumber
   } catch (error) {
     console.error(error);
     showNotification('Не удалось загрузить профиль.', 'error');
   }
 }
 
+// Загрузка постов пользователя
 async function loadUserPosts() {
   const userId = getQueryParam('userId');
   if (!userId) return;
@@ -47,27 +50,31 @@ async function loadUserPosts() {
         'Authorization': `Bearer ${authToken}`,
       },
     });
+
     if (!response.ok) throw new Error('Ошибка при получении постов пользователя');
+
     const posts = await response.json();
     const userPosts = document.getElementById('user-posts');
-    userPosts.innerHTML = '';
+    userPosts.innerHTML = ''; // Очистка перед добавлением постов
+
     if (posts.length === 0) {
-      userPosts.innerHTML = '<p>Нет доступных постов.</p>';
+      userPosts.innerHTML = '<p class="no-posts">Нет доступных постов.</p>';
       return;
     }
+
     posts.forEach(post => {
       const postDiv = document.createElement('div');
       postDiv.className = 'post';
 
+      // Создание заголовка с ссылкой
       const title = document.createElement('h3');
-      // Делаем заголовок кликабельным
       const link = document.createElement('a');
       link.href = `post.html?postId=${encodeURIComponent(post.id)}`;
       link.textContent = post.title;
-      link.style.textDecoration = 'none';
-      link.style.color = '#007BFF'; // Цвет ссылки
+      link.className = 'post-link';
       title.appendChild(link);
 
+      // Добавление описания поста
       const content = document.createElement('p');
       content.textContent = post.description;
 
@@ -80,4 +87,16 @@ async function loadUserPosts() {
     console.error(error);
     showNotification('Не удалось загрузить посты пользователя.', 'error');
   }
+}
+
+// Отображение уведомлений
+function showNotification(message, type) {
+  const container = document.querySelector('.container');
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  container.prepend(notification);
+
+  // Удаление уведомления через 3 секунды
+  setTimeout(() => notification.remove(), 3000);
 }

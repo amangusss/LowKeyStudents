@@ -1,8 +1,14 @@
 /* index.css */
 
 /* Users Section */
-#users {
-    margin-bottom: 40px;
+  #users {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   #users h2 {
@@ -147,6 +153,7 @@
     border: 1px solid #bdc3c7;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
   }
   
   .add-post h3 {

@@ -31,8 +31,15 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
   }
-  
-  .user-list li:hover {
+
+  .user-list li:active {
+    background-color: #34495e; /* Цвет при нажатии */
+    color: #34495e; /* Цвет текста при нажатии */
+    transform: scale(0.50); /* Легкий эффект уменьшения */
+  }
+
+
+.user-list li:hover {
     background-color: #bdc3c7;
     transform: translateX(5px);
   }
