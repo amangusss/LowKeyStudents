@@ -1,0 +1,35 @@
+/* footer.css */
+
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .footer .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer .social-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer .social-links a:hover {
+    color: #3498db;
+  }
+  

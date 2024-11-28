@@ -1,0 +1,43 @@
+/* profile.css */
+
+#profile {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  #profile h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .profile-info p {
+    font-size: 1em;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info strong {
+    color: #2c3e50;
+  }
+  
+  #user-posts, #user-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .comment-list {
+    border-left: 3px solid #bdc3c7;
+    padding-left: 20px;
+  }
+  
+  .comment-list p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #2c3e50;
+  }
+  

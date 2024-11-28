@@ -1,6 +1,5 @@
     package alatoo.edu.kg.lowkeystudents.api.config;
 
-
     import alatoo.edu.kg.lowkeystudents.api.filter.JwtAuthenticationFilter;
     import lombok.AccessLevel;
     import lombok.RequiredArgsConstructor;
@@ -15,6 +14,12 @@
     import org.springframework.security.web.SecurityFilterChain;
     import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
     import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+    import org.springframework.web.cors.CorsConfiguration;
+    import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+    import org.springframework.web.filter.CorsFilter;
+
+    import java.util.Arrays;
+    import java.util.List;
 
     @Configuration
     @EnableWebSecurity
@@ -30,16 +35,37 @@
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-            return http
+            http
                     .csrf(AbstractHttpConfigurer::disable)
-                    .cors(AbstractHttpConfigurer::disable)
+                    .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                    .sessionManagement(session -> session
+                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers(HttpMethod.POST, AUTH_ROUTES).permitAll()
                             .anyRequest().authenticated())
-                    .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authenticationProvider(authenticationProvider)
-                    .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                    .build();
+                    .addFilterBefore(jwtAuthFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
+
+            return http.build();
+        }
+
+        @Bean
+        public CorsFilter corsFilter() {
+            return new CorsFilter(corsConfigurationSource());
+        }
+
+        @Bean
+        public UrlBasedCorsConfigurationSource corsConfigurationSource() {
+            CorsConfiguration config = new CorsConfiguration();
+            config.setAllowedOrigins(List.of("http://localhost:5500"));
+            config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+            config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+            config.setExposedHeaders(List.of("Authorization"));
+            config.setAllowCredentials(true);
+
+            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+            source.registerCorsConfiguration("/**", config);
+            return source;
         }
 
     }
