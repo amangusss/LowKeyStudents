@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-public class LowKeyStudentsApiApplication {
+public class BackendApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(LowKeyStudentsApiApplication.class, args);
+        SpringApplication.run(BackendApp.class, args);
     }
 
 }
