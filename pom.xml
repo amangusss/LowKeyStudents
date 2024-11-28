@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>alatoo.edu.kg</groupId>
-    <artifactId>low-key-students-api</artifactId>
+    <artifactId>low-key-students</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>low-key-students-api</name>
     <description>low-key-students-api</description>
