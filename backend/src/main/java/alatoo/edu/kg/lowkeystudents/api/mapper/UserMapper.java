@@ -2,6 +2,7 @@ package alatoo.edu.kg.lowkeystudents.api.mapper;
 
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserLoginResponseDto;
+import alatoo.edu.kg.lowkeystudents.api.payload.user.UserPublicDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserRegisterRequestDto;
 import alatoo.edu.kg.lowkeystudents.store.entity.UserEntity;
 
@@ -21,6 +22,8 @@ public interface UserMapper {
 
     @Mapping(target = "accessToken", ignore = true)
     UserLoginResponseDto toLoginResponseDTO(UserEntity user);
+
+    UserPublicDto toPublicDto(UserEntity user);
 
     default UserLoginResponseDto toLoginResponseDTOWithToken(UserEntity user, String accessToken) {
         UserLoginResponseDto dto = toLoginResponseDTO(user);

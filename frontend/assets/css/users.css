@@ -1,0 +1,39 @@
+/* users.css */
+
+#users-page {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  #users-page h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .user-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .user-list li {
+    background-color: #ecf0f1;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .user-list li:hover {
+    background-color: #bdc3c7;
+    transform: translateX(5px);
+  }
+  

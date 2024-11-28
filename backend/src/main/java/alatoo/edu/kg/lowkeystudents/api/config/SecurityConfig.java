@@ -42,6 +42,7 @@
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers(HttpMethod.POST, AUTH_ROUTES).permitAll()
+//                            .requestMatchers("/api/users/**").hasRole("ADMIN")
                             .anyRequest().authenticated())
                     .authenticationProvider(authenticationProvider)
                     .addFilterBefore(jwtAuthFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
@@ -57,7 +58,7 @@
         @Bean
         public UrlBasedCorsConfigurationSource corsConfigurationSource() {
             CorsConfiguration config = new CorsConfiguration();
-            config.setAllowedOrigins(List.of("http://localhost:5500"));
+            config.setAllowedOrigins(List.of("http://localhost:5500", "http://127.0.0.1:5500"));
             config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
             config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
             config.setExposedHeaders(List.of("Authorization"));

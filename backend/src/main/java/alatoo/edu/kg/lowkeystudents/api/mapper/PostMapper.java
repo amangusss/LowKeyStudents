@@ -17,6 +17,6 @@ public interface PostMapper {
     @Mapping(target = "updatedAt", ignore = true)
     PostEntity toEntity(PostRequestDto dto);
 
-    @Mapping(target = "authorUsername", source = "author.username")
+    @Mapping(target = "author", source = "author")
     PostResponseDto toDto(PostEntity entity);
 }

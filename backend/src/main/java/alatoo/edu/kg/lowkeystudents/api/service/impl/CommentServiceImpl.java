@@ -88,6 +88,14 @@ public class CommentServiceImpl implements CommentService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<CommentResponseDto> getCommentsByUserId(Long userId) {
+        List<CommentEntity> comments = commentRepository.findByAuthorId(userId);
+        return comments.stream()
+                .map(commentMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
     private UserEntity getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (UserEntity) authentication.getPrincipal();

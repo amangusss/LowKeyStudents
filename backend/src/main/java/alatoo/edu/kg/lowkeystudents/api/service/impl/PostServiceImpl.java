@@ -82,6 +82,14 @@ public class PostServiceImpl implements PostService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<PostResponseDto> getPostsByUserId(Long userId) {
+        List<PostEntity> posts = postRepository.findByAuthorId(userId);
+        return posts.stream()
+                .map(postMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
     private UserEntity getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (UserEntity) authentication.getPrincipal();

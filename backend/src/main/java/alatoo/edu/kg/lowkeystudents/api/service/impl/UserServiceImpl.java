@@ -3,10 +3,7 @@ package alatoo.edu.kg.lowkeystudents.api.service.impl;
 import alatoo.edu.kg.lowkeystudents.api.enums.Roles;
 import alatoo.edu.kg.lowkeystudents.api.exceptions.*;
 import alatoo.edu.kg.lowkeystudents.api.mapper.UserMapper;
-import alatoo.edu.kg.lowkeystudents.api.payload.user.UserDto;
-import alatoo.edu.kg.lowkeystudents.api.payload.user.UserLoginRequestDto;
-import alatoo.edu.kg.lowkeystudents.api.payload.user.UserLoginResponseDto;
-import alatoo.edu.kg.lowkeystudents.api.payload.user.UserRegisterRequestDto;
+import alatoo.edu.kg.lowkeystudents.api.payload.user.*;
 import alatoo.edu.kg.lowkeystudents.api.service.JwtService;
 import alatoo.edu.kg.lowkeystudents.api.service.UserService;
 import alatoo.edu.kg.lowkeystudents.store.entity.UserEntity;
@@ -17,7 +14,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -84,6 +83,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserPublicDto> getAllUsers() {
+        List<UserEntity> users = repository.findAll();
+        return users.stream()
+                .map(userMapper::toPublicDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public UserDto update(Long id, UserDto dto) {
         UserEntity user = repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("User not found"));
@@ -124,6 +131,4 @@ public class UserServiceImpl implements UserService {
         }
         repository.deleteById(id);
     }
-
-
 }

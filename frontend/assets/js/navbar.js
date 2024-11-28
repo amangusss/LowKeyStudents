@@ -1,3 +1,5 @@
+// navbar.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {

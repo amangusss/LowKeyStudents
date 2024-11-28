@@ -19,7 +19,7 @@ public interface CommentMapper {
     @Mapping(target = "updatedAt", ignore = true)
     CommentEntity toEntity(CommentRequestDto dto);
 
-    @Mapping(target = "authorUsername", source = "author.username")
+    @Mapping(target = "author", source = "author")
     @Mapping(target = "postId", source = "post.id")
     CommentResponseDto toDto(CommentEntity entity);
 }

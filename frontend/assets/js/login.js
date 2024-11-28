@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
       loginForm.addEventListener('submit', loginUser);
     }
+  
+    // Add Enter key functionality for login form
+    const loginUsername = document.getElementById('login-username');
+    const loginPassword = document.getElementById('login-password');
+  
+    loginUsername.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        loginUser(e);
+      }
+    });
+  
+    loginPassword.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        loginUser(e);
+      }
+    });
   });
   
   async function loginUser(event) {

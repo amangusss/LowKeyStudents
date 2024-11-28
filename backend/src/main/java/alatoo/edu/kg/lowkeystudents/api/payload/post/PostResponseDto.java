@@ -1,6 +1,7 @@
 package alatoo.edu.kg.lowkeystudents.api.payload.post;
 
 import alatoo.edu.kg.lowkeystudents.api.payload.comment.CommentResponseDto;
+import alatoo.edu.kg.lowkeystudents.api.payload.user.UserPublicDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -18,6 +19,6 @@ public class PostResponseDto {
     String description;
     Instant createdAt;
     Instant updatedAt;
-    String authorUsername;
+    UserPublicDto author;
     List<CommentResponseDto> comments;
 }

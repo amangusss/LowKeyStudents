@@ -2,35 +2,30 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('post-list')) {
-      displayUsers();
       displayPosts();
   
       const addPostButton = document.getElementById('add-post-button');
       addPostButton.addEventListener('click', addNewPost);
+  
+      // Add Enter key functionality for adding posts
+      const postTitleInput = document.getElementById('post-title');
+      const postContentInput = document.getElementById('post-content');
+  
+      postTitleInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addNewPost();
+        }
+      });
+  
+      postContentInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) { // Allow Shift+Enter for new lines
+          e.preventDefault();
+          addNewPost();
+        }
+      });
     }
   });
-  
-  async function displayUsers() {
-    try {
-      const response = await fetch(`${API_URL}/users`, {
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-        },
-      });
-      if (!response.ok) throw new Error('Error fetching users');
-      const users = await response.json();
-      const userList = document.getElementById('user-list');
-      userList.innerHTML = '';
-      users.forEach(user => {
-        const li = document.createElement('li');
-        li.textContent = user.username;
-        userList.appendChild(li);
-      });
-    } catch (error) {
-      console.error(error);
-      showNotification('Failed to load users.', 'error');
-    }
-  }
   
   async function displayPosts() {
     try {
@@ -84,6 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const commentButton = document.createElement('button');
         commentButton.textContent = 'Submit';
+  
+        // Enable submitting comments with Enter key
+        commentInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            commentButton.click();
+          }
+        });
   
         commentButton.addEventListener('click', () => {
           const text = commentInput.value.trim();

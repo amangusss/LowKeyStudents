@@ -5,6 +5,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (registerForm) {
       registerForm.addEventListener('submit', registerUser);
     }
+  
+    // Add Enter key functionality for registration form
+    const registerUsername = document.getElementById('register-username');
+    const registerPassword = document.getElementById('register-password');
+    const registerEmail = document.getElementById('register-email');
+    const registerPhone = document.getElementById('register-phone');
+  
+    registerUsername.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        registerUser(e);
+      }
+    });
+  
+    registerPassword.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        registerUser(e);
+      }
+    });
+  
+    registerEmail.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        registerUser(e);
+      }
+    });
+  
+    registerPhone.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        registerUser(e);
+      }
+    });
   });
   
   async function registerUser(event) {
