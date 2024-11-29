@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forum - Low-key Students</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+  <div id="notification-container" class="notification-container"></div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="Logo" class="logo-image"> 
+        Low-key Students
+     </a>      
+      <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="users.html">Users</a></li>
+        <li><a href="#posts">Posts</a></li>
+        <li><button id="logout-button" class="logout-button">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="posts">
+      <h2>Posts</h2>
+      <div id="post-list" class="post-list"></div>
+
+      <div id="add-post" class="add-post">
+        <p><h3>Add New Post</h3>
+        <label for="post-title"></label><input type="text" id="post-title" placeholder="Title">
+        <label for="post-content"></label><textarea id="post-content" placeholder="Content"></textarea>
+        <button id="add-post-button">Add Post</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Low-key Students. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>
