@@ -1,13 +1,10 @@
-// index.js
-
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('post-list')) {
       displayPosts();
   
       const addPostButton = document.getElementById('add-post-button');
       addPostButton.addEventListener('click', addNewPost);
-  
-      // Add Enter key functionality for adding posts
+
       const postTitleInput = document.getElementById('post-title');
       const postContentInput = document.getElementById('post-content');
   
@@ -19,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   
       postContentInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) { // Allow Shift+Enter for new lines
+        if (e.key === 'Enter' && !e.shiftKey) {
           e.preventDefault();
           addNewPost();
         }

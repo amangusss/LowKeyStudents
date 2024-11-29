@@ -57,7 +57,7 @@
         @Bean
         public UrlBasedCorsConfigurationSource corsConfigurationSource() {
             CorsConfiguration config = new CorsConfiguration();
-            config.setAllowedOrigins(List.of("http://localhost:5500", "http://localhost:63342"));
+            config.setAllowedOrigins(List.of("http://localhost:5500", "http://localhost:63342", "http://127.0.0.1:5500"));
             config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
             config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
             config.setExposedHeaders(List.of("Authorization"));

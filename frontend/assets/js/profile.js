@@ -5,13 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Получение параметра userId из URL
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
-// Загрузка профиля пользователя
 async function loadProfile() {
   const userId = getQueryParam('userId');
   if (!userId) {
@@ -39,7 +37,6 @@ async function loadProfile() {
   }
 }
 
-// Загрузка постов пользователя
 async function loadUserPosts() {
   const userId = getQueryParam('userId');
   if (!userId) return;
@@ -66,7 +63,6 @@ async function loadUserPosts() {
       const postDiv = document.createElement('div');
       postDiv.className = 'post';
 
-      // Создание заголовка с ссылкой
       const title = document.createElement('h3');
       const link = document.createElement('a');
       link.href = `post.html?postId=${encodeURIComponent(post.id)}`;
@@ -74,7 +70,6 @@ async function loadUserPosts() {
       link.className = 'post-link';
       title.appendChild(link);
 
-      // Добавление описания поста
       const content = document.createElement('p');
       content.textContent = post.description;
 
@@ -89,7 +84,6 @@ async function loadUserPosts() {
   }
 }
 
-// Отображение уведомлений
 function showNotification(message, type) {
   const container = document.querySelector('.container');
   const notification = document.createElement('div');
@@ -97,6 +91,5 @@ function showNotification(message, type) {
   notification.textContent = message;
   container.prepend(notification);
 
-  // Удаление уведомления через 3 секунды
   setTimeout(() => notification.remove(), 3000);
 }
