@@ -35,3 +35,8 @@ Low-Key Students позволяет пользователям:
 
 ### 2. Frontend
 - Перейдите в директорию `frontend` и откройте файл `index.html` в браузере.
+
+
+
+## Техническое задание 
+- https://docs.google.com/document/d/1rftCJTeUAMTExyjaMR17UKXrKPHYogt7UhDpHbMLie0/edit?usp=sharing
