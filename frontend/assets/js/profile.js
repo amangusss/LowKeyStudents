@@ -13,8 +13,8 @@ function getQueryParam(param) {
 async function loadProfile() {
   const userId = getQueryParam('userId');
   if (!userId) {
-    console.error('userId отсутствует в URL');
-    showNotification('Пользователь не указан.', 'error');
+    console.error('The userId is missing from the URL');
+    showNotification('The user is not specified.', 'error');
     return;
   }
 
@@ -25,7 +25,7 @@ async function loadProfile() {
       },
     });
 
-    if (!response.ok) throw new Error('Ошибка при получении профиля');
+    if (!response.ok) throw new Error('Error receiving the profile');
 
     const user = await response.json();
 
@@ -33,7 +33,7 @@ async function loadProfile() {
     document.getElementById('profile-username').textContent = user.username;
   } catch (error) {
     console.error(error);
-    showNotification('Не удалось загрузить профиль.', 'error');
+    showNotification('The profile could not be uploaded.', 'error');
   }
 }
 
@@ -48,14 +48,14 @@ async function loadUserPosts() {
       },
     });
 
-    if (!response.ok) throw new Error('Ошибка при получении постов пользователя');
+    if (!response.ok) throw new Error('Error when receiving user posts');
 
     const posts = await response.json();
     const userPosts = document.getElementById('user-posts');
-    userPosts.innerHTML = ''; // Очистка перед добавлением постов
+    userPosts.innerHTML = '';
 
     if (posts.length === 0) {
-      userPosts.innerHTML = '<p class="no-posts">Нет доступных постов.</p>';
+      userPosts.innerHTML = '<p class="no-posts">There are no posts available.</p>';
       return;
     }
 
@@ -80,7 +80,7 @@ async function loadUserPosts() {
     });
   } catch (error) {
     console.error(error);
-    showNotification('Не удалось загрузить посты пользователя.', 'error');
+    showNotification('The user\'s posts could not be uploaded.', 'error');
   }
 }
 

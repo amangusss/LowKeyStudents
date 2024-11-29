@@ -1,7 +1,4 @@
-/* index.css */
-
-/* Users Section */
-  #users {
+ #users {
     max-width: 800px;
     margin: 20px auto;
     background-color: #ffffff;
@@ -86,8 +83,7 @@
     color: #34495e;
     line-height: 1.6;
   }
-  
-  /* Comments Section */
+
   .comment-list {
     margin-top: 20px;
     padding-left: 20px;
@@ -145,8 +141,7 @@
   .add-comment button:hover {
     background-color: #1e8449;
   }
-  
-  /* Add Post */
+
   .add-post {
     background-color: #ffffff;
     padding: 20px;

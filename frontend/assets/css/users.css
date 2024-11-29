@@ -1,5 +1,3 @@
-/* users.css */
-
 #users-page {
     background-color: #ffffff;
     padding: 20px;
@@ -34,8 +32,8 @@
 
   .user-list li:active {
     background-color: #34495e; /* Цвет при нажатии */
-    color: #34495e; /* Цвет текста при нажатии */
-    transform: scale(0.50); /* Легкий эффект уменьшения */
+    color: #34495e;
+    transform: scale(0.50);
   }
 
 

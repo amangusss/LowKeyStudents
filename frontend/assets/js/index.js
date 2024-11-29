@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const author = document.createElement('span');
         author.className = 'author';
-        author.textContent = `by ${post.authorUsername}`;
+        author.textContent = `by ${post.author.username}`;
   
         title.appendChild(author);
   
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const commentUl = document.createElement('ul');
         post.comments.forEach(comment => {
           const commentLi = document.createElement('li');
-          commentLi.innerHTML = `<strong>${comment.authorUsername}:</strong> ${comment.content}`;
+          commentLi.innerHTML = `<strong>${comment.author.username}:</strong> ${comment.content}`;
           commentUl.appendChild(commentLi);
         });
   
@@ -139,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(newPost),
       });
       if (!response.ok) throw new Error('Error adding post');
-      const createdPost = await response.json();
-      displayPosts();
+      await response.json();
+      await displayPosts();
       titleInput.value = '';
       contentInput.value = '';
       showNotification('Post added successfully!');
@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(newComment),
       });
       if (!response.ok) throw new Error('Error adding comment');
-      const createdComment = await response.json();
-      displayPosts();
+      await response.json();
+      await displayPosts();
       showNotification('Comment added successfully!');
     } catch (error) {
       console.error(error);

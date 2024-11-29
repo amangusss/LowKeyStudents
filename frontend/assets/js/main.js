@@ -1,6 +1,4 @@
-// main.js
-
-const API_URL = 'http://localhost:8081/api'; // Ensure this matches your backend URL
+const API_URL = 'http://localhost:8081/api';
 let authToken = localStorage.getItem('authToken') || '';
 
 function showNotification(message, type = 'success') {

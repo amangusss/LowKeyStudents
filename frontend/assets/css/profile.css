@@ -1,5 +1,3 @@
-/* profile.css */
-
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f6f9;
@@ -17,7 +15,6 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Уведомления */
 .notification {
   padding: 10px 15px;
   margin-bottom: 20px;
@@ -35,7 +32,6 @@ body {
   color: white;
 }
 
-/* Заголовки */
 h1, h2 {
   text-align: center;
   margin: 20px 0;
@@ -52,7 +48,6 @@ h2 {
   color: #2980b9;
 }
 
-/* Информация о профиле */
 #profile-info {
   margin-bottom: 30px;
   background-color: #ecf0f1;
@@ -71,14 +66,12 @@ h2 {
   color: #2c3e50;
 }
 
-/* Посты пользователя */
 #user-posts {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Оформление отдельного поста */
 .post {
   background-color: #ffffff;
   padding: 15px 20px;
@@ -104,7 +97,6 @@ h2 {
   color: #34495e;
 }
 
-/* Кнопки */
 button, .button {
   background-color: #2980b9;
   color: white;

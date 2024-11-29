@@ -1,12 +1,9 @@
-// login.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
       loginForm.addEventListener('submit', loginUser);
     }
-  
-    // Add Enter key functionality for login form
+
     const loginUsername = document.getElementById('login-username');
     const loginPassword = document.getElementById('login-password');
   
@@ -53,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(errorData.message || 'Login failed');
       }
       const data = await response.json();
+      data.accessToken = undefined;
       authToken = data.accessToken;
       localStorage.setItem('authToken', authToken);
       showNotification('Login successful!');

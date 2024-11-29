@@ -2,46 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Пост</title>
-    <link rel="stylesheet" href="assets/css/post.css"> <!-- Подключение post.css -->
+    <title>Post</title>
+    <link rel="stylesheet" href="assets/css/post.css">
 </head>
 <body>
     <div class="container">
-        <!-- Навигационная панель -->
         <div class="navigation">
-            <a href="index.html">Главная</a>
-            <a href="profile.html?userId=1">Профиль</a>
+            <a href="index.html">Home</a>
+            <a href="profile.html?userId=1">Profile</a>
         </div>
+        <h1 id="post-title">Post title</h1>
 
-        <!-- Заголовок поста -->
-        <h1 id="post-title">Название поста</h1>
-
-        <!-- Описание поста -->
-        <p id="post-description">Описание или содержание поста...</p>
-
-        <!-- Информация об авторе и датах -->
+        <p id="post-description">Description or content of the post...</p>
         <div class="post-info">
-            <span>Автор: <strong>Username</strong></span>
-            <span>Создано: <em>2024-11-28</em></span>
-            <span>Обновлено: <em>2024-11-29</em></span>
+            <span>Author: <strong>Username</strong></span>
+            <span>Created at: <em>2024-11-28</em></span>
+            <span>Updated at: <em>2024-11-29</em></span>
         </div>
-
-        <!-- Кнопки для редактирования и удаления поста -->
-        <a href="edit-post.html?postId=1" class="button edit">Редактировать</a>
-        <a href="#" class="button delete">Удалить</a>
-
-        <!-- Секция комментариев (можно удалить, если не используется) -->
-        <!--
-        <div class="comments-section">
-            <h2>Комментарии</h2>
-            <div class="comment">
-                <p><strong>User1:</strong> Комментарий пользователя 1...</p>
-            </div>
-            <div class="comment">
-                <p><strong>User2:</strong> Комментарий пользователя 2...</p>
-            </div>
-        </div>
-        -->
     </div>
 
     <script src="assets/js/post.js"></script>

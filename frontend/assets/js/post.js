@@ -1,5 +1,3 @@
-// src/main/resources/static/js/post.js
-
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('post-title')) {
         loadPost();
@@ -14,7 +12,7 @@ function getQueryParam(param) {
 async function loadPost() {
     const postId = getQueryParam('postId');
     if (!postId) {
-        showNotification('Пост не указан.', 'error');
+        showNotification('The post is not specified.', 'error');
         return;
     }
 
@@ -24,15 +22,14 @@ async function loadPost() {
                 'Authorization': `Bearer ${authToken}`,
             },
         });
-        if (!response.ok) throw new Error('Ошибка при получении поста');
+        if (!response.ok) throw new Error('An error occurred when receiving the post.');
         const post = await response.json();
         document.getElementById('post-title').textContent = post.title;
         document.getElementById('post-description').textContent = post.description;
         document.querySelector('.post-info strong').textContent = post.author.username;
         document.querySelector('.post-info em').textContent = new Date(post.createdAt).toLocaleString();
-        // Добавьте другие поля, если необходимо
     } catch (error) {
         console.error(error);
-        showNotification('Не удалось загрузить пост.', 'error');
+        showNotification('The post could not be uploaded.', 'error');
     }
 }

@@ -11,8 +11,6 @@
 </head>
 <body>
     <div id="notification-container" class="notification-container"></div>
-
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
@@ -24,23 +22,19 @@
       </ul>
     </div>
   </nav>
-
-  <!-- Main Content -->
   <main class="container">
     <div class="auth-container">
       <h1>Register</h1>
       <form id="register-form" class="auth-form">
-        <input type="text" id="register-username" placeholder="Username" required>
-        <input type="password" id="register-password" placeholder="Password" required>
-        <input type="email" id="register-email" placeholder="Email" required>
-        <input type="text" id="register-phone" placeholder="Phone Number" required>
+        <label for="register-username"></label><input type="text" id="register-username" placeholder="Username" required>
+        <label for="register-password"></label><input type="password" id="register-password" placeholder="Password" required>
+        <label for="register-email"></label><input type="email" id="register-email" placeholder="Email" required>
+        <label for="register-phone"></label><input type="text" id="register-phone" placeholder="Phone Number" required>
         <button type="submit">Register</button>
       </form>
       <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
   </main>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2024 Low-key Students. All rights reserved.</p>

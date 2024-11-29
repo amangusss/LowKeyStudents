@@ -1,5 +1,3 @@
-// assets/js/users.js
-
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('user-list')) {
     displayUsers();

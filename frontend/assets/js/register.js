@@ -1,12 +1,8 @@
-// register.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
       registerForm.addEventListener('submit', registerUser);
     }
-  
-    // Add Enter key functionality for registration form
     const registerUsername = document.getElementById('register-username');
     const registerPassword = document.getElementById('register-password');
     const registerEmail = document.getElementById('register-email');
