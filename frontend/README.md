@@ -36,6 +36,7 @@ frontend/
 │       ├── navbar.js
 │       └── ...
 ├── index.html
+├── ...
 └── README.md
 
 ## Использование
