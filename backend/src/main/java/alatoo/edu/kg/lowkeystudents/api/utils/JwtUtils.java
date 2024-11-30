@@ -1,4 +1,4 @@
-package alatoo.edu.kg.lowkeystudents.api.service;
+package alatoo.edu.kg.lowkeystudents.api.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 @Component
-public class JwtService {
+public class JwtUtils {
 
     @Value("${jwt.secret}")
     private String secretKey;
@@ -48,14 +48,14 @@ public class JwtService {
     }
 
     public String generateToken(UserDetails userDetails) {
-        return createToken(userDetails.getUsername());
+        return createToken(userDetails.getUsername(), expirationMillis);
     }
 
-    private String createToken(String subject) {
+    private String createToken(String subject, long expiration) {
         return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expirationMillis))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
