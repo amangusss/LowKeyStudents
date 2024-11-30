@@ -21,6 +21,7 @@ public interface UserMapper {
     UserEntity toUserFromRegisterRequest(UserRegisterRequestDto dto);
 
     @Mapping(target = "accessToken", ignore = true)
+    @Mapping(target = "refreshToken", ignore = true)
     UserLoginResponseDto toLoginResponseDTO(UserEntity user);
 
     UserPublicDto toPublicDto(UserEntity user);

@@ -1,4 +1,4 @@
-package alatoo.edu.kg.lowkeystudents.api.controllers;
+package alatoo.edu.kg.lowkeystudents.api.controllers.user;
 
 import alatoo.edu.kg.lowkeystudents.api.payload.comment.CommentResponseDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.post.PostResponseDto;
@@ -11,6 +11,7 @@ import alatoo.edu.kg.lowkeystudents.api.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
-public class UserController {
+public final class UserController implements UserControllerDocumentation {
 
     private final UserService userService;
     private final PostService postService;
@@ -55,7 +56,8 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
