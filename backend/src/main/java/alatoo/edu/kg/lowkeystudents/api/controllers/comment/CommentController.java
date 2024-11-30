@@ -1,4 +1,4 @@
-package alatoo.edu.kg.lowkeystudents.api.controllers;
+package alatoo.edu.kg.lowkeystudents.api.controllers.comment;
 
 import alatoo.edu.kg.lowkeystudents.api.payload.comment.CommentRequestDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.comment.CommentResponseDto;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class CommentController {
+public final class CommentController implements CommentControllerDocumentation {
 
     private final CommentService commentService;
 
