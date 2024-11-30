@@ -1,4 +1,4 @@
-package alatoo.edu.kg.lowkeystudents.api.controllers;
+package alatoo.edu.kg.lowkeystudents.api.controllers.post;
 
 import alatoo.edu.kg.lowkeystudents.api.payload.post.PostRequestDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.post.PostResponseDto;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/posts")
 @RequiredArgsConstructor
-public class PostController {
+public final class PostController implements PostControllerDocumentation {
 
     private final PostService postService;
 
