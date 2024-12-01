@@ -85,12 +85,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public UserLoginResponseDto login(UserLoginRequestDto dto) {
-        UserEntity user = repository.findByUsernameOrEmailOrPhoneNumber(dto.login(), dto.login(), dto.login())
-                .orElseThrow(() -> new NotFoundException("User does not exist"));
-
-        if (!passwordEncoder.matches(dto.password(), user.getPassword())) {
-            throw new AuthException("Incorrect password!");
-        }
+        UserEntity user = repository.findByUsername(dto.login())
+                .orElseThrow(() -> new NotFoundException("The user was not found"));
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -99,7 +95,10 @@ public class AuthServiceImpl implements AuthService {
                 )
         );
 
+        refreshTokenService.deleteByUserId(user.getId());
+
         String jwtToken = jwtUtils.generateToken(user);
+
         RefreshTokenEntity refreshToken = refreshTokenService.createRefreshToken(user);
 
         return new UserLoginResponseDto(

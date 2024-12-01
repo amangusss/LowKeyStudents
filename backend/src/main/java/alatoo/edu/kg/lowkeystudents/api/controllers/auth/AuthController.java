@@ -1,6 +1,5 @@
 package alatoo.edu.kg.lowkeystudents.api.controllers.auth;
 
-import alatoo.edu.kg.lowkeystudents.api.annotations.CurrentUser;
 import alatoo.edu.kg.lowkeystudents.api.exceptions.TokenRefreshException;
 import alatoo.edu.kg.lowkeystudents.api.payload.token.TokenRefreshRequest;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserDto;
@@ -9,7 +8,6 @@ import alatoo.edu.kg.lowkeystudents.api.payload.user.UserLoginResponseDto;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserRegisterRequestDto;
 import alatoo.edu.kg.lowkeystudents.api.service.AuthService;
 import alatoo.edu.kg.lowkeystudents.api.service.RefreshTokenService;
-import alatoo.edu.kg.lowkeystudents.api.service.UserService;
 
 import alatoo.edu.kg.lowkeystudents.api.utils.JwtUtils;
 import alatoo.edu.kg.lowkeystudents.store.entity.RefreshTokenEntity;
@@ -61,7 +59,10 @@ public final class AuthController implements AuthControllerDocumentation {
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshTokenEntity::getUser)
                 .map(user -> {
+                    refreshTokenService.deleteByUserId(user.getId());
+
                     String newAccessToken = jwtUtils.generateToken(user);
+
                     String newRefreshToken = refreshTokenService.createRefreshToken(user).getToken();
 
                     UserLoginResponseDto response = new UserLoginResponseDto(

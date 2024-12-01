@@ -3,7 +3,6 @@ package alatoo.edu.kg.lowkeystudents.api.controllers.admin;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UpdateUserRolesRequest;
 import alatoo.edu.kg.lowkeystudents.api.payload.user.UserDto;
 import alatoo.edu.kg.lowkeystudents.api.service.AdminService;
-import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
